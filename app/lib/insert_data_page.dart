@@ -81,68 +81,63 @@ class _InsertionPageState extends State<InsertionPage> {
                   // Add the new song to the songs list
                   Song.addSong(newSong);
 
-                  print(titleController.text);
-                  print(artistController.text);
-                  print(selectedItem);
-                  setState(() {
-        // Show the dialog with the song information
-        showDialog(
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: Text('Inserted Song'),
-              content: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text('Title: ${newSong.title}'),
-                  Text('Artist: ${newSong.artist}'),
-                  Text('Genre: ${newSong.genre ?? 'Unknown'}'),
-                ],
-              ),
-              actions: [
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: Text('Close'),
-                ),
-              ],
-            );
-          },
-        );
+                  setState(() { // This is what finally got everything to work. For some reason the controller variables were updated as expected, but when the dialog box showed up they were empty. Something to do with the dialog box referencing old info, but using setState fixed it.
+                    // Show the dialog with the song information. This was such a pain and it barely works. 
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return AlertDialog(
+                          title: Text('Inserted Song'),
+                          content: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text('Title: ${newSong.title}'),
+                              Text('Artist: ${newSong.artist}'),
+                              Text('Genre: ${newSong.genre ?? 'Unknown'}'),
+                            ],
+                          ),
+                          actions: [
+                            ElevatedButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text('Close'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
 
-        // Add the new song to the 'songs' list using the helper class
-        Song.addSong(newSong);
-
-        // Optionally, you can clear the text controllers
-        titleController.clear();
-        artistController.clear();
-        selectedItem = null; // Reset the dropdown to null after submitting
-      });
-    } else {
-      // Handle the case where the genre is not selected
-      showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text('Error'),
-            content: Text('Please select a genre.'),
-            actions: [
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text('OK'),
-              ),
-            ],
-          );
-        },
-      );
-    }
-  },
-  child: Text('Insert Song'),
-),
+                    // clears the text controllers after song is added and dialog appears
+                    titleController.clear();
+                    artistController.clear();
+                    selectedItem =
+                        null; // Reset the dropdown to null after submitting
+                  });
+                } else {
+                  // Handle the case where the genre is not selected
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text('Error'),
+                        content: Text('Please select a genre.'),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text('OK'),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }
+              },
+              child: Text('Insert Song'),
+            ),
           ],
         ),
       ),
