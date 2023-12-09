@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'song.dart';
 
@@ -51,13 +53,13 @@ class _InsertionPageState extends State<InsertionPage> {
               value: selectedItem,
               items: [
                 DropdownMenuItem<String>(
-                  child: Text(''), // Blank item
                   value: null,
+                  child: Text(''),
                 ),
                 ...genre_options.map(
                   (item) => DropdownMenuItem<String>(
-                    child: Text(item, style: TextStyle(fontSize: 20)),
                     value: item,
+                    child: Text(item, style: TextStyle(fontSize: 20)),
                   ),
                 ),
               ],
@@ -94,7 +96,7 @@ class _InsertionPageState extends State<InsertionPage> {
                             children: [
                               Text('Title: ${newSong.title}'),
                               Text('Artist: ${newSong.artist}'),
-                              Text('Genre: ${newSong.genre ?? 'Unknown'}'),
+                              Text('Genre: ${newSong.genre}'),
                             ],
                           ),
                           actions: [
