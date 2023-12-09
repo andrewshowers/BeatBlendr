@@ -22,7 +22,8 @@ class _InsertionPageState extends State<InsertionPage> {
   // I was having a lot of trouble trying to make the dropdown default to null, but this fixed it
   @override
   void initState() {
-    super.initState(); // this line is necessary, but I am slightly confused as to why.  Does not work without though.
+    super
+        .initState(); // this line is necessary, but I am slightly confused as to why.  Does not work without though.
     selectedItem = null; // Set selectedItem to null
   }
 
@@ -74,41 +75,74 @@ class _InsertionPageState extends State<InsertionPage> {
                   Song newSong = Song(
                     title: titleController.text,
                     artist: artistController.text,
-                    genre: selectedItem ??
-                        'DefaultGenre',
+                    genre: selectedItem ?? 'DefaultGenre',
                   );
 
                   // Add the new song to the songs list
                   Song.addSong(newSong);
 
-                  // clears the text controllers
-                  titleController.clear();
-                  artistController.clear();
+                  print(titleController.text);
+                  print(artistController.text);
+                  print(selectedItem);
                   setState(() {
-                    selectedItem = null; // Reset the dropdown to null after submitting
-                  });
-                } else { // if genre isn't selected, shows an error box
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: Text('Error'),
-                        content: Text('Please select a genre.'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: Text('OK'),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                }
-              },
-              child: Text('Insert Song'),
-            ),
+        // Show the dialog with the song information
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Inserted Song'),
+              content: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text('Title: ${newSong.title}'),
+                  Text('Artist: ${newSong.artist}'),
+                  Text('Genre: ${newSong.genre ?? 'Unknown'}'),
+                ],
+              ),
+              actions: [
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('Close'),
+                ),
+              ],
+            );
+          },
+        );
+
+        // Add the new song to the 'songs' list using the helper class
+        Song.addSong(newSong);
+
+        // Optionally, you can clear the text controllers
+        titleController.clear();
+        artistController.clear();
+        selectedItem = null; // Reset the dropdown to null after submitting
+      });
+    } else {
+      // Handle the case where the genre is not selected
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Error'),
+            content: Text('Please select a genre.'),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('OK'),
+              ),
+            ],
+          );
+        },
+      );
+    }
+  },
+  child: Text('Insert Song'),
+),
           ],
         ),
       ),
