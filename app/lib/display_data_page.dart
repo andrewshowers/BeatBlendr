@@ -12,7 +12,7 @@ class DisplayDataPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Display Data'),
+        title: Text('Song Library'),
       ),
       body: ListView.builder(
         // ListView is used to display a list of items
@@ -22,7 +22,8 @@ class DisplayDataPage extends StatelessWidget {
           Song currentSong = _list[index];
           return ListTile(
             title: Text(currentSong.title),
-            subtitle: Text('Artist: ${currentSong.artist} | Genre: ${currentSong.genre}'),
+            subtitle: Text(
+                'Artist: ${currentSong.artist} | Genre: ${currentSong.genre}'),
           );
         },
       ),

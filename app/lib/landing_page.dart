@@ -9,26 +9,44 @@ class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 108, 108, 108), // Grey background
       appBar: AppBar(
-        title: Text('Welcome to Flutter App'),
+        title: Text(
+          'BEAT BLENDR',
+          style: TextStyle(
+            color: Colors.orange, // Title text in blue
+            fontSize: 60,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Welcome to our Flutter App!',
-              style: TextStyle(fontSize: 20),
-            ),
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => InsertionPage()),
+                  MaterialPageRoute(builder: (context) => GenreButtonsPage()),
                 );
               },
-              child: Text('Go to Insertion Page'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                    Colors.orange, // Set the button color to orange
+                padding: EdgeInsets.symmetric(
+                    horizontal: 100, vertical: 50), // Larger size
+              ),
+              child: Text(
+                'Give me a song recomendation',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.white,
+                ),
+              ),
             ),
             SizedBox(height: 10),
             ElevatedButton(
@@ -38,17 +56,41 @@ class LandingPage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => DisplayDataPage()),
                 );
               },
-              child: Text('Go to Display Data Page'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                    Colors.orange, // Set the button color to orange
+                padding: EdgeInsets.symmetric(
+                    horizontal: 100, vertical: 50), // Larger size
+              ),
+              child: Text(
+                'Song library',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.white,
+                ),
+              ),
             ),
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => GenreButtonsPage()),
+                  MaterialPageRoute(builder: (context) => InsertionPage()),
                 );
               },
-              child: Text('Go to Genre Selection Page'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor:
+                    Colors.orange, // Set the button color to orange
+                padding: EdgeInsets.symmetric(
+                    horizontal: 100, vertical: 50), // Larger size
+              ),
+              child: Text(
+                'Add a song to the library',
+                style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.white,
+                ),
+              ),
             ),
           ],
         ),
