@@ -14,12 +14,11 @@ class LandingPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromRGBO(244, 243, 243, 1), // White background
       appBar: AppBar(
-        title: const Text('Welcome to BeatBlendr!'),
+        title: const Text('Welcome to BeatBlendr!'), // Title
         backgroundColor: Colors.white,
         elevation: 0,
         leading: Builder(
           builder: (BuildContext context) {
-            // Use Builder to get a context with Scaffold ancestor
             return IconButton(
               icon: Icon(Icons.menu, color: Colors.black87),
               onPressed: () {
