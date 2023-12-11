@@ -9,6 +9,6 @@ jobs:
     - uses: actions/checkout@v1
     - uses: subosito/flutter-action@v1
     # this is the most important line. This runs all the files that are named *_test in the test folder
-    - run: 
+    - run: | # the pipe is used to run multiple commands. Apparently, its read as one command without the pipe. Im so sick of this.
         flutter config --enable-windows-desktop
         flutter test -d windows test/*_test.dart # this is for integration tests. It SHOULD run all the files that are named *_test in the test folder
