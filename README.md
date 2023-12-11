@@ -44,16 +44,16 @@ The app will be a Client-Server Application where the app will send a request wi
   Figure 3: Class Diagram for Music App
 </p>
 
-## 4 Video
+## 4 User Guide/Implementation
 
-### 4.1 New Video
-[https://youtu.be/RQkuuv4jIJQ](https://youtu.be/RQkuuv4jIJQ)https://youtu.be/RQkuuv4jIJQ
+### 4.1 Home Page
 
-### 4.2 App Functionality 
-[https://youtu.be/_o13jRvfNTI](https://youtu.be/_o13jRvfNTI)https://youtu.be/_o13jRvfNTI
+### 4.2 Insert Data Page
 
-### 4.3 Old Video for reference
-[https://youtu.be/-Fo75aVzfNM](https://youtu.be/-Fo75aVzfNM)https://youtu.be/-Fo75aVzfNM
+### 4.3 Display Data Page
+
+### 4.4 Genre Selection Page
+
 
 
 ## 5 Risk Analysis and Retrospective
@@ -62,6 +62,15 @@ In order to tailor the app to the needs of the client, we changed the songs reco
 We also encountered an issue with the 'Insert a song' page. Since the software was looking for a key specific genre, if a user input 'pop' instead of the capitalized 'Pop', the song would be lost in the library. So, in order to combat this issue there is now a drop down menu so that the input will always be consistent with spelling and only allow for proper genre inputs.
 At first, the song insertion page did not refresh or allow for the user to confirm that their song was added to the database. In solving this problem, after hitting 'submit' the text boxes would be cleared, and there is not a pop up that verifies the song being inserted and relays this information back to the user. 
 
+## 6 Video
 
+### 6.1 New Video
+[https://youtu.be/RQkuuv4jIJQ](https://youtu.be/RQkuuv4jIJQ)https://youtu.be/RQkuuv4jIJQ
+
+### 6.2 App Functionality 
+[https://youtu.be/_o13jRvfNTI](https://youtu.be/_o13jRvfNTI)https://youtu.be/_o13jRvfNTI
+
+### 6.3 Old Video for reference
+[https://youtu.be/-Fo75aVzfNM](https://youtu.be/-Fo75aVzfNM)https://youtu.be/-Fo75aVzfNM
 
  
