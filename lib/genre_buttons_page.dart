@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'song.dart';
 
+/// GenreButtonsPage is the core of our application.
+/// It displays a grid of buttons, each of which represents a genre, and return a dialog box containing a recommenended song
+/// The 'I'm Feeling Lucky' button returns a dialog box containing a random song from any genre
+/// This page uses methods from the Song class to generate the random songs, where the bulk of the logic and storage are
 class GenreButtonsPage extends StatelessWidget {
-  // Map of genres to image paths
-  final Map<String, String> genreToImage = {
+  final Map<String, String> genreToImage = { // Map of genres to image paths
     'Hip-Hop': 'assets/images/Hip-Hop.jpg',
     'Pop': 'assets/images/Pop.jpg',
     'Jazz': 'assets/images/Jazz.jpg',
     'Classical': 'assets/images/Classical.jpg',
     'Country': 'assets/images/Country.jpg',
-    // Add more genres and their corresponding images if needed
   };
 
   @override
   Widget build(BuildContext context) {
-    // List of genres
-    List<String> genres = ['Hip-Hop', 'Pop', 'Jazz', 'Classical', 'Country'];
+    List<String> genres = ['Hip-Hop', 'Pop', 'Jazz', 'Classical', 'Country']; // List of genres
 
     return Scaffold(
       appBar: AppBar(
@@ -45,18 +46,19 @@ class GenreButtonsPage extends StatelessWidget {
 
   Widget buildGenreButton(
       String genre, String imagePath, BuildContext context) {
-    // Define the size of the square
-    double size = MediaQuery.of(context).size.width / 2 -
+    double size = MediaQuery.of(context).size.width / 2 - // Define the size of the square
         20; // Adjust the divisor to fit the layout
 
+    // When the button is presses, we create a new list, 
+    // convert the button genre and list genre to lowecase to make sure they're the same, 
+    // and fill the list all the songs of that genre
     return Container(
       width: size,
       height: size,
       margin: const EdgeInsets.all(10), // spacing between buttons
       child: ElevatedButton(
-        // When the button is presses, we create a new list, convert the button genre and list genre to lowecase to make sure they're the same, and fill the list all the songs of that genre
         onPressed: () {
-          Song? randomSong = Song.randomSongByGenre(Song.songs, genre);
+          Song? randomSong = Song.randomSongByGenre(Song.songs, genre); // uses the randomSongByGenre method from the Song class
           if (randomSong != null) {
             showDialog(
               context: context,
@@ -73,8 +75,7 @@ class GenreButtonsPage extends StatelessWidget {
                     ],
                   ),
                   actions: [
-                    // used text button instead of raised button because it looks nicer and is easier to implement
-                    TextButton(
+                    TextButton( // used text button instead of raised button because it looks nicer and is easier to implement
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
@@ -84,7 +85,7 @@ class GenreButtonsPage extends StatelessWidget {
                 );
               },
             );
-          } else {
+          } else { // Handle the case where the genre is not selected
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text('No songs available for $genre'),
@@ -100,7 +101,7 @@ class GenreButtonsPage extends StatelessWidget {
             side: BorderSide(color: Colors.black, width: 4), // button border
           ),
         ),
-        child: Stack(
+        child: Stack( // Stack is used to display the image and text on top of each other
           alignment: Alignment.center,
           children: [
             Ink.image(
@@ -111,8 +112,7 @@ class GenreButtonsPage extends StatelessWidget {
             ),
             Positioned(
               bottom: 10,
-              child: Text(
-                // Text under each button
+              child: Text( // Text under each button
                 genre,
                 style: const TextStyle(
                   color: Colors.black,
@@ -128,18 +128,20 @@ class GenreButtonsPage extends StatelessWidget {
     );
   }
 
+  // when the button is pressed, we call the randomSong method from the Song class
+  // this method does not take a genre parameter, so it returns a random song from any genre
+  // we then display the song info in a dialog box
   buildRandomButton(BuildContext context) {
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: ElevatedButton(
-          // When the button is presses, we create a new list, convert the button genre and list genre to lowecase to make sure they're the same, and fill the list all the songs of that genre
           onPressed: () {
-            Song randomSong = Song.randomSong(Song.songs);
+            Song randomSong = Song.randomSong(Song.songs); // calls the randomSong method from the Song class
             showDialog(
               context: context,
               builder: (BuildContext context) {
-                return AlertDialog(
+                return AlertDialog( // displays the song info in a dialog box
                   title: const Text('Random Song'),
                   content: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -151,8 +153,7 @@ class GenreButtonsPage extends StatelessWidget {
                     ],
                   ),
                   actions: [
-                    // used text button instead of raised button because it looks nicer and is easier to implement
-                    TextButton(
+                    TextButton( // used text button instead of raised button because it looks nicer and is easier to implement
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
@@ -164,9 +165,8 @@ class GenreButtonsPage extends StatelessWidget {
             );
           },
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.purple, // Set your desired color here
-            foregroundColor: Colors.white, // This is the text color
-            // Additional styling can be added here if needed
+            backgroundColor: Colors.purple, 
+            foregroundColor: Colors.white, 
           ),
           child: const Text(
             'I\'m Feeling Lucky!',
