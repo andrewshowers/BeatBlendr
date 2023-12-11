@@ -118,7 +118,7 @@ class LandingPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                         border: Border.all(color: Colors.black87), // Add a border
                         image: DecorationImage(
-                          image: AssetImage('images/music.jpg'),
+                          image: AssetImage('assets/images/music.jpg'),
                           fit: BoxFit.cover,
                         )
                       ),
@@ -189,7 +189,7 @@ class LandingPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
                             fit: BoxFit.cover,
-                            image: AssetImage('images/spotify.jpg')),
+                            image: AssetImage('assets/images/spotify.jpg')),
                       ),
                       child: Container(
                         decoration: BoxDecoration(
