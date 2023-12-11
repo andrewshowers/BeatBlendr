@@ -60,7 +60,8 @@ class GenreButtonsPage extends StatelessWidget {
                       ],
                     ),
                     actions: [
-                      ElevatedButton(
+                      // used text button instead of raised button because it looks nicer and is easier to implement
+                      TextButton(
                         onPressed: () {
                           Navigator.of(context).pop();
                         },

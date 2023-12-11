@@ -11,7 +11,7 @@ class InsertionPage extends StatefulWidget {
 class _InsertionPageState extends State<InsertionPage> {
   TextEditingController titleController = TextEditingController();
   TextEditingController artistController = TextEditingController();
-  List<String> genre_options = [
+  List<String> genreOptions = [
     'Classical',
     'Pop',
     'Jazz',
@@ -23,8 +23,7 @@ class _InsertionPageState extends State<InsertionPage> {
   // I was having a lot of trouble trying to make the dropdown default to null, but this fixed it
   @override
   void initState() {
-    super
-        .initState(); // this line is necessary, but I am slightly confused as to why.  Does not work without though.
+    super.initState(); // this line is necessary, but I am slightly confused as to why.  Does not work without though.
     selectedItem = null; // Set selectedItem to null
   }
 
@@ -55,7 +54,7 @@ class _InsertionPageState extends State<InsertionPage> {
                   value: null,
                   child: Text(''),
                 ),
-                ...genre_options.map(
+                ...genreOptions.map(
                   (item) => DropdownMenuItem<String>(
                     value: item,
                     child: Text(item, style: TextStyle(fontSize: 20)),
@@ -68,7 +67,7 @@ class _InsertionPageState extends State<InsertionPage> {
                 });
               },
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () async {
                 if (selectedItem != null) {
@@ -82,8 +81,7 @@ class _InsertionPageState extends State<InsertionPage> {
                   // Add the new song to the songs list
                   Song.addSong(newSong, Song.songs);
 
-                  setState(() {
-                    // This is what finally got everything to work. For some reason the controller variables were updated as expected, but when the dialog box showed up they were empty. Something to do with the dialog box referencing old info, but using setState fixed it.
+                  setState(() { // This is what finally got everything to work. For some reason the controller variables were updated as expected, but when the dialog box showed up they were empty. Something to do with the dialog box referencing old info, but using setState fixed it.
                     // Show the dialog with the song information. This was such a pain and it barely works.
                     showDialog(
                       context: context,

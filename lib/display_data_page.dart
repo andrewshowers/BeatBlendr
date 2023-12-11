@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'song.dart';
 
 class DisplayDataPage extends StatelessWidget {
-  DisplayDataPage({super.key});
+  DisplayDataPage({Key? key});
 
-  List<Song> _list = Song.songs;
+  // Made the list because it doesn't change
+  final List<Song> _list = Song.songs;
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +20,12 @@ class DisplayDataPage extends StatelessWidget {
         itemCount: _list.length, // number of items to be displayed
         itemBuilder: (context, index) {
           // Access the currently indexed song
-          Song currentSong = _list[index];
+          Song song = _list[index];
           return ListTile(
-            title: Text(currentSong.title),
+            // ListTile displays the row of information
+            title: Text(song.title),
             subtitle: Text(
-                'Artist: ${currentSong.artist} | Genre: ${currentSong.genre}'),
+                'Artist: ${song.artist} | Genre: ${song.genre}'),
           );
         },
       ),
