@@ -175,7 +175,7 @@ class Song {
   ];
 
   // Method to add a new song to the 'songs' list. Insertion page uses this
-  static void addSong(Song newSong) {
-    songs.add(newSong);
+  static void addSong(Song newSong, List<Song> songslist) {
+    songslist.add(newSong);
   }
 }

@@ -11,7 +11,6 @@ class InsertionPage extends StatefulWidget {
 class _InsertionPageState extends State<InsertionPage> {
   TextEditingController titleController = TextEditingController();
   TextEditingController artistController = TextEditingController();
-  TextEditingController genreController = TextEditingController();
   List<String> genre_options = [
     'Classical',
     'Pop',
@@ -81,7 +80,7 @@ class _InsertionPageState extends State<InsertionPage> {
                   );
 
                   // Add the new song to the songs list
-                  Song.addSong(newSong);
+                  Song.addSong(newSong, Song.songs);
 
                   setState(() { // This is what finally got everything to work. For some reason the controller variables were updated as expected, but when the dialog box showed up they were empty. Something to do with the dialog box referencing old info, but using setState fixed it.
                     // Show the dialog with the song information. This was such a pain and it barely works. 

@@ -1,0 +1,12 @@
+name: test-my-app
+# the push flag tells the workflow to run each time a push is made to the repository
+on: [push, workflow_dispatch] 
+jobs:
+  drive:
+    # doesn't really matter what you run on, but ubuntu is the least resource intensive
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - uses: subosito/flutter-action@v1
+    # this is the most important line. This runs all the files that are named *_test in the test folder
+    - run: flutter test
