@@ -5,7 +5,7 @@ import 'package:musicproject/song.dart';
 void main() {
   test('testing the newSong() method', () {
     //setup
-    List <Song> songList = [];
+    List<Song> songList = [];
     Song newSong = Song(
       title: 'test title',
       artist: 'test artist',

@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, non_constant_identifier_names
+// ignore_for_file: prefer_const_constructors, non_constant_identifier_names, library_private_types_in_public_api
 
 import 'package:flutter/material.dart';
 import 'song.dart';
@@ -82,8 +82,9 @@ class _InsertionPageState extends State<InsertionPage> {
                   // Add the new song to the songs list
                   Song.addSong(newSong, Song.songs);
 
-                  setState(() { // This is what finally got everything to work. For some reason the controller variables were updated as expected, but when the dialog box showed up they were empty. Something to do with the dialog box referencing old info, but using setState fixed it.
-                    // Show the dialog with the song information. This was such a pain and it barely works. 
+                  setState(() {
+                    // This is what finally got everything to work. For some reason the controller variables were updated as expected, but when the dialog box showed up they were empty. Something to do with the dialog box referencing old info, but using setState fixed it.
+                    // Show the dialog with the song information. This was such a pain and it barely works.
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
