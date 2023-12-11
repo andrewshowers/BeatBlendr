@@ -67,6 +67,11 @@ flutter:
     - assets/images/taylorswift.jpg
     - assets/images/spotify.jpg
     - assets/images/music.jpg
+    - assets/images/Classical.jpg
+    - assets/images/Country.jpg
+    - assets/images/Hip-Hop.jpg
+    - assets/images/Jazz.jpg
+    - assets/images/Pop.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
