@@ -4,6 +4,10 @@ import 'insert_data_page.dart';
 import 'genre_buttons_page.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 
+/// This is the landing page of the app.
+/// It's the first page that the user sees.
+/// It has a button that takes you to the genre selection page, along with a menu page for navigation.
+/// It also has a list of featured artists and a button that advertises Spotify.
 class LandingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -26,8 +30,10 @@ class LandingPage extends StatelessWidget {
           },
         ),
       ),
+      // This is the hamburger icon in the top left. It's an easy way to navigate our app.
       drawer: Drawer(
         child: ListView(
+          // The EdgeInsets.only() widget is used to add padding so that the drawer items aren't flush with the top of the screen.
           padding: EdgeInsets.only(top: 25),
           children: [
             ListTile(
@@ -91,7 +97,7 @@ class LandingPage extends StatelessWidget {
                     style: TextStyle(color: Colors.black87, fontSize: 25),
                   ),
                   SizedBox(height: 3),
-                  // Removed commented-out code. Uncomment if needed.
+                  // This is the code for the animated text that cycles through the words below.
                   AnimatedTextKit(
                     animatedTexts: [
                       TyperAnimatedText(
@@ -100,7 +106,7 @@ class LandingPage extends StatelessWidget {
                           fontSize: 32.0,
                           fontWeight: FontWeight.bold,
                         ),
-                        speed: const Duration(milliseconds: 100),
+                        speed: const Duration(milliseconds: 100), // I found that this was a good speed that wasn't too overwhelming
                       ),
                       TyperAnimatedText(
                         'Music',
@@ -175,23 +181,22 @@ class LandingPage extends StatelessWidget {
                         speed: const Duration(milliseconds: 100),
                       ),
                     ],
-                    // totalRepeatCount: 4,
-                    repeatForever: true,
-                    displayFullTextOnTap: true,
-                    // stopPauseOnTap: true,
+                    repeatForever: true, // This makes the animation loop forever. It would stop after a bit before
+                    displayFullTextOnTap: true, // This makes the animation stop when you tap it
                   ),
                   SizedBox(
                     height: 20,
                   ),
+                  /// This is the button that takes you to the genre selection page.
                   Container(
                     padding: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
                     decoration: BoxDecoration(
                         color: Color.fromRGBO(244, 243, 243, 1),
                         borderRadius: BorderRadius.circular(15),
                         border:
-                            Border.all(color: Colors.black87), // Add a border
+                            Border.all(color: Colors.black87), // Added a border
                         image: DecorationImage(
-                          image: AssetImage('assets/images/music.jpg'),
+                          image: AssetImage('assets/images/music.jpg'), // Background image to make it clearer that this is a button.
                           fit: BoxFit.cover,
                         )),
                     child: TextButton(
@@ -206,7 +211,7 @@ class LandingPage extends StatelessWidget {
                       child: Row(
                         children: [
                           Icon(
-                            Icons.audiotrack,
+                            Icons.audiotrack, // music icon
                             color: Colors.black87,
                           ),
                           SizedBox(width: 10),
@@ -242,7 +247,7 @@ class LandingPage extends StatelessWidget {
                   ),
                   Container(
                     height: 200,
-                    child: ListView(
+                    child: ListView( // This is the list of artists that scrolls horizontally.
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[
                         promoCard('assets/images/21savage.jpg'),
@@ -255,7 +260,7 @@ class LandingPage extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  Container(
+                  Container( // This is a button advertising Spotify.
                     height: 150,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
@@ -298,6 +303,9 @@ class LandingPage extends StatelessWidget {
     );
   }
 
+  /// This is the code for the featured artists.
+  /// It's a container with a gradient and a picture.
+  /// Writing the promoCard this way makes it consistent and reusable.
   Widget promoCard(image) {
     return AspectRatio(
       aspectRatio: 2.62 / 3,
