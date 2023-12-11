@@ -1,4 +1,5 @@
 import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'song.dart';
 
@@ -7,7 +8,7 @@ class GenreButtonsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Genre Selection Page'),
+        title: const Text('Genre Selection Page'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -19,6 +20,7 @@ class GenreButtonsPage extends StatelessWidget {
           buildGenreButton('Jazz', context),
           buildGenreButton('Classical', context),
           buildGenreButton('Country', context),
+          buildRandomButton(context),
         ],
       ),
     );
@@ -80,10 +82,56 @@ class GenreButtonsPage extends StatelessWidget {
       ),
     );
   }
+  
+  buildRandomButton(BuildContext context) {
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: Colors.blue, // Button color
+            onPrimary: Colors.white, // Text color
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+          ),
+          // When the button is presses, we create a new list, convert the button genre and list genre to lowecase to make sure they're the same, and fill the list all the songs of that genre
+          onPressed: () {
+            Song randomSong = Song.randomSong(Song.songs);
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('Random Song'),
+                    content: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text('Title: ${randomSong.title}'),
+                        Text('Artist: ${randomSong.artist}'),
+                        Text('Genre: ${randomSong.genre}'),
+                      ],
+                    ),
+                    actions: [
+                      // used text button instead of raised button because it looks nicer and is easier to implement
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        child: const Text('Close'),
+                      ),
+                    ],
+                  );
+                },
+              );
+            }, child: const Text(
+              'I\'m Feeling Lucky',
+              style: TextStyle(fontSize: 18),
+            ),
+        )));
 }
 
 void main() {
   runApp(MaterialApp(
     home: GenreButtonsPage(),
   ));
+}
 }
