@@ -173,10 +173,10 @@ class LandingPage extends StatelessWidget {
                       child: ListView(
                         scrollDirection: Axis.horizontal,
                         children: <Widget>[
-                          promoCard('images/21savage.jpg'),
-                          promoCard('images/taylorswift.jpg'),
-                          promoCard('images/future.jpg'),
-                          promoCard('images/kanye.jpg'),
+                          promoCard('assets/images/21savage.jpg'),
+                          promoCard('assets/images/taylorswift.jpg'),
+                          promoCard('assets/images/future.jpg'),
+                          promoCard('assets/images/kanye.jpg'),
                         ],
                       ),
                     ),
