@@ -25,7 +25,7 @@ The app will be a Client-Server Application where the app will send a request wi
   <img src="regex/MusicApp_Use_Case.png" width="500" title="Use Case Diagram">
   <br>
   <br>
- Figure 1: Use Case Diagram for Music App
+ Figure 1: Use Case Diagram for BeatBlendr
 </p>
 
  ### 3.2 Sequence Diagram
@@ -33,7 +33,7 @@ The app will be a Client-Server Application where the app will send a request wi
   <img src="regex/MusicApp_Sequence.png" width="600" title="Use Case Diagram">
   <br>
   <br>
-  Figure 2: Sequence Diagram for Music App
+  Figure 2: Sequence Diagram for BeatBlendr
 </p>
 
  ### 3.3 Class Diagram
@@ -41,7 +41,7 @@ The app will be a Client-Server Application where the app will send a request wi
   <img src="regex/MusicApp Class Diagram.png" width="600" title="Use Case Diagram">
   <br>
   <br>
-  Figure 3: Class Diagram for Music App
+  Figure 3: Class Diagram for BeatBlendr
 </p>
 
 ## 4 User Guide/Implementation
