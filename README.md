@@ -1,20 +1,24 @@
 <a href="https://github.com/andrewshowers/BeatBlendr/actions"><img src="https://github.com/andrewshowers/BeatBlendr/workflows/test-my-app/badge.svg" alt="Build Status"></a>
 # MusicApp
-An app to give users personalized music recommendations
+An app to give users personalized music recommendations.
 
 ### Made by: 
 ---
-#### Brendan Lewis
-#### Andrew Showers
+#### Brendan Lewis - CIS 350 03
+#### Andrew Showers - CIS 350 03
 ---
 ## 1 Abstract
-Welcome to the Music Recommendation App, a mobile client-server application designed to provide users with personalized song recommendations based on their input. This project utilizes the MERN stack for the backend and Flutter for the user interface. Many people are stuck listening to the same music for months to years at a time wishing that they could find something new that fits their style. This application aims to address this issue by providing simple recomendations to the user.
+BeatBlendr is a mobile application that provides personalized music recommendations to the client. At its core, BeatBlendr offers a unique approach to music exploration, allowing the user to find their new favorite song with the click of a button. This application allows for a new type of genre-based recommendations, where the user may select their preferred genre, and BeatBlendr responds with a random track from its large song library. 
+The applications song library is dynamic and allows for users to input a song of their choice. This created a diverse collection of music tailored to the communities interests. 
+Key features of BeatBlendr include its user-friendly interface, ensuring easy navigation between pages and an enjoyable user experience. The apps personalized recommendation system is designed to give the client a randomized song based on their genre selection. 
+BeatBlendr is targeted towards a broad audience, becoming the perfect companion for someone looking to expand their musical horizons. Whether you are an avid music enthusiast, or simply looking for a song to fit your mood, BeatBlendr offers a new exciting way to discover music personalized to you.
+
 
 ## 2 Introduction
-The goal of this app is to help users discover music that they enjoy in a fast, easy to use form. Users will quickly input information such as: music platforms used, favorite genres, and favorite artists before getting a personalized feed of music that they might enjoy. 
+The goal of this app is to help users discover music that they enjoy in a fast, easy to use form. Users will select their favorite genre, and recieve a personalized feed of music that they might enjoy. The user may also add to the extensive song library and view all of its contents if they wish.
 
 ## 3 Architectural Design
-The app will be a Client-Server Application where the app will send a request with their song/artist of choice to the server and recieve the song recomendations back. The server will uses the database to search for known songs.
+The app will be a Client-Server Application where the app will send a request with their genre of choice to the server and recieve the song recomendations back. The server will uses the database to search for known songs.
 
  ### 3.1 Use Case Diagram
 <p align="center">
