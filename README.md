@@ -1,5 +1,5 @@
 <a href="https://github.com/andrewshowers/BeatBlendr/actions"><img src="https://github.com/andrewshowers/BeatBlendr/workflows/test-my-app/badge.svg" alt="Build Status"></a>
-# MusicApp
+# BeatBlendr
 An app to give users personalized music recommendations.
 
 ### Made by: 
