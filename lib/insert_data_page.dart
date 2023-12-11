@@ -8,10 +8,13 @@ class InsertionPage extends StatefulWidget {
   _InsertionPageState createState() => _InsertionPageState();
 }
 
+/// This is the private State class that goes with MyStatefulWidget.
+/// Title, artist, and genre are all required fields.  The genre is a dropdown menu.
+/// The song is added to the list of songs when the user presses the Insert Song button.
 class _InsertionPageState extends State<InsertionPage> {
   TextEditingController titleController = TextEditingController();
   TextEditingController artistController = TextEditingController();
-  List<String> genreOptions = [
+  List<String> genreOptions = [ // List of genres for the dropdown menu
     'Classical',
     'Pop',
     'Jazz',
@@ -71,19 +74,20 @@ class _InsertionPageState extends State<InsertionPage> {
             ElevatedButton(
               onPressed: () async {
                 if (selectedItem != null) {
-                  // Create a new Song object from user input
-                  Song newSong = Song(
-                    title: titleController.text,
-                    artist: artistController.text,
-                    genre: selectedItem ?? 'DefaultGenre',
+                  Song newSong = Song( // Create a new Song object from user input
+                    title: titleController.text, // Get the text from the title text controllers
+                    artist: artistController.text, // Get the text from the artist text controllers
+                    genre: selectedItem ?? 'DefaultGenre', // Get the selected genre from the dropdown menu
                   );
 
                   // Add the new song to the songs list
                   Song.addSong(newSong, Song.songs);
 
-                  setState(() { // This is what finally got everything to work. For some reason the controller variables were updated as expected, but when the dialog box showed up they were empty. Something to do with the dialog box referencing old info, but using setState fixed it.
-                    // Show the dialog with the song information. This was such a pain and it barely works.
-                    showDialog(
+                  // setState() is what finally got everything to work. 
+                  // For some reason the controller variables were updated as expected, but when the dialog box showed up they were empty. 
+                  // Something to do with the dialog box referencing old info, but using setState fixed it.
+                  setState(() {
+                    showDialog( // Show a dialog box with the song info of the inserted song.
                       context: context,
                       builder: (BuildContext context) {
                         return AlertDialog(
@@ -115,8 +119,7 @@ class _InsertionPageState extends State<InsertionPage> {
                     selectedItem =
                         null; // Reset the dropdown to null after submitting
                   });
-                } else {
-                  // Handle the case where the genre is not selected
+                } else { // Handle the case where the genre is not selected
                   showDialog(
                     context: context,
                     builder: (BuildContext context) {
