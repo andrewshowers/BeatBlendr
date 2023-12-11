@@ -45,20 +45,22 @@ class LandingPage extends StatelessWidget {
                   // ),
                   AnimatedTextKit(
                     animatedTexts: [
-                      TypewriterAnimatedText(
-                        'Hello world!',
-                        textStyle: const TextStyle(
-                          fontSize: 32.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      speed: const Duration(milliseconds: 2000),
-                      ),
+                      TyperAnimatedText('Passion', textStyle: const TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold,), speed: const Duration(milliseconds: 100),),
+                      TyperAnimatedText('Music', textStyle: const TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold,), speed: const Duration(milliseconds: 100),),
+                      TyperAnimatedText('Jam', textStyle: const TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold,), speed: const Duration(milliseconds: 100),),
+                      TyperAnimatedText('Song', textStyle: const TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold,), speed: const Duration(milliseconds: 100),),
+                      TyperAnimatedText('Tune', textStyle: const TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold,), speed: const Duration(milliseconds: 100),),
+                      TyperAnimatedText('Rhythm', textStyle: const TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold,), speed: const Duration(milliseconds: 100),),
+                      TyperAnimatedText('Melody', textStyle: const TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold,), speed: const Duration(milliseconds: 100),),
+                      TyperAnimatedText('Genre', textStyle: const TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold,), speed: const Duration(milliseconds: 100),),
+                      TyperAnimatedText('Artist', textStyle: const TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold,), speed: const Duration(milliseconds: 100),),
+                      TyperAnimatedText('Beat', textStyle: const TextStyle(fontSize: 32.0, fontWeight: FontWeight.bold,), speed: const Duration(milliseconds: 100),),
                     ],
 
                     totalRepeatCount: 4,
-                    pause: const Duration(milliseconds: 1000),
+                    // pause: const Duration(milliseconds: 100),
                     displayFullTextOnTap: true,
-                    stopPauseSOnTap: true,
+                    stopPauseOnTap: true,
                 ) 
                 ],
               ),
