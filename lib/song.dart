@@ -1,3 +1,5 @@
+import 'dart:math';
+
 class Song {
   String title;
   String artist;
@@ -177,5 +179,20 @@ class Song {
   // Method to add a new song to the 'songs' list. Insertion page uses this
   static void addSong(Song newSong, List<Song> songslist) {
     songslist.add(newSong);
+  }
+
+  static randomSong(List<Song> songslist) {
+    Song randomSong = songslist[Random().nextInt(songslist.length)];
+    return randomSong;
+  }
+
+  static Song? randomSongByGenre(List<Song> songslist, String genre) { // changed from Song to Song? so that null is also a possible return type.
+    List<Song> genreSongs = songslist.where((song) => song.genre.toLowerCase() == genre.toLowerCase()).toList();
+    if (genreSongs.isEmpty) {
+      return null;
+    } else {
+      Song randomSong = genreSongs[Random().nextInt(genreSongs.length)];
+      return randomSong;
+    }
   }
 }

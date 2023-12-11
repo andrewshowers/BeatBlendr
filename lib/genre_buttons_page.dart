@@ -36,15 +36,8 @@ class GenreButtonsPage extends StatelessWidget {
           ),
           // When the button is presses, we create a new list, convert the button genre and list genre to lowecase to make sure they're the same, and fill the list all the songs of that genre
           onPressed: () {
-            List<Song> genreSongs = Song.songs
-                .where(
-                    (song) => song.genre.toLowerCase() == genre.toLowerCase())
-                .toList();
-
-            // if the list isn't empty, we generate a random song from it and display it in a dialog box. If it is empty, we return a dialog box letting thet user know. I got a really ugly version of this to work, and then used chatGPT to help me make it look nicer.
-            if (genreSongs.isNotEmpty) {
-              Song randomSong = genreSongs[Random().nextInt(genreSongs.length)];
-
+            Song? randomSong = Song.randomSongByGenre(Song.songs, genre);
+            if (randomSong != null) {
               showDialog(
                 context: context,
                 builder: (BuildContext context) {

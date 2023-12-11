@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:musicproject/song.dart';
 
-// this test makes sure the user can enter data into the text fields and the dropdown menu. It DOES NOT TEST FOR INSERTING DATA INTO THE LIST. insert_data_test.dart tests for that.
+// this tests the addSong() method. It adds a song to an empty list of type song, and checks to make sure it was added.
 void main() {
   test('testing the newSong() method', () {
     //setup
@@ -11,6 +11,12 @@ void main() {
       artist: 'test artist',
       genre: 'test genre',
     );
+    //do
     Song.addSong(newSong, songList);
+    //test
+    expect(songList.length, 1);
+    expect(songList[0].title, 'test title');
+    expect(songList[0].artist, 'test artist');
+    expect(songList[0].genre, 'test genre');
   });
 }
