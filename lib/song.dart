@@ -181,7 +181,7 @@ class Song {
     songslist.add(newSong);
   }
 
-  static randomSong(List<Song> songslist) {
+  static Song randomSong(List<Song> songslist) {
     Song randomSong = songslist[Random().nextInt(songslist.length)];
     return randomSong;
   }
