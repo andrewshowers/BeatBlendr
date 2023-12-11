@@ -52,4 +52,12 @@ The app will be a Client-Server Application where the app will send a request wi
 [https://youtu.be/-Fo75aVzfNM](https://youtu.be/-Fo75aVzfNM)https://youtu.be/-Fo75aVzfNM
 
 
+## 5 Risk Analysis and Retrospective
+As this app was in development, we wanted to create a login so that the user might be able to store their information. This created the risk of losing personal information such as emails, usernames, or passwords. We decided that since the app did not need to keep a record of the users songs, there was no need for authentication. Therefore, negating this risk. 
+In order to tailor the app to the needs of the client, we changed the songs recommendations to a hard-coded database, instead of using a server. This allows for the user to get a response with almost no delay, and makes it much easier for the client to upload their own song to the library.
+We also encountered an issue with the 'Insert a song' page. Since the software was looking for a key specific genre, if a user input 'pop' instead of the capitalized 'Pop', the song would be lost in the library. So, in order to combat this issue there is now a drop down menu so that the input will always be consistent with spelling and only allow for proper genre inputs.
+At first, the song insertion page did not refresh or allow for the user to confirm that their song was added to the database. In solving this problem, after hitting 'submit' the text boxes would be cleared, and there is not a pop up that verifies the song being inserted and relays this information back to the user. 
+
+
+
  
