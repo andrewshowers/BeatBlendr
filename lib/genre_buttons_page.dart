@@ -12,6 +12,7 @@ class GenreButtonsPage extends StatelessWidget {
     'Jazz': 'assets/images/Jazz.jpg',
     'Classical': 'assets/images/Classical.jpg',
     'Country': 'assets/images/Country.jpg',
+    'Random': 'assets/images/question2.jpg',
   };
 
   @override
@@ -37,7 +38,7 @@ class GenreButtonsPage extends StatelessWidget {
             String imagePath = genreToImage[genre] ?? 'default_image_path.jpg';
             return buildGenreButton(genre, imagePath, context);
           } else {
-            return buildRandomButton(context);
+            return buildRandomButton('assets/images/question2.jpg', context);
           }
         },
       ),
@@ -79,7 +80,7 @@ class GenreButtonsPage extends StatelessWidget {
                       onPressed: () {
                         Navigator.of(context).pop();
                       },
-                      child: Text('Close'),
+                      child: const Text('Close'),
                     ),
                   ],
                 );
@@ -131,17 +132,22 @@ class GenreButtonsPage extends StatelessWidget {
   // when the button is pressed, we call the randomSong method from the Song class
   // this method does not take a genre parameter, so it returns a random song from any genre
   // we then display the song info in a dialog box
-  buildRandomButton(BuildContext context) {
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ElevatedButton(
-          onPressed: () {
-            Song randomSong = Song.randomSong(Song.songs); // calls the randomSong method from the Song class
+  Widget buildRandomButton(String imagePath, BuildContext context) {
+    double size = MediaQuery.of(context).size.width / 2 - // Define the size of the square
+        20; // Adjust the divisor to fit the layout
+
+    // When the button is pressed, we return a random song from any genre
+    return Container(
+      width: size,
+      height: size,
+      margin: const EdgeInsets.all(10), // spacing between buttons
+      child: ElevatedButton(
+        onPressed: () {
+          Song? randomSong = Song.randomSong(Song.songs); // uses the randomSong method from the Song class
             showDialog(
               context: context,
               builder: (BuildContext context) {
-                return AlertDialog( // displays the song info in a dialog box
+                return AlertDialog(
                   title: const Text('Random Song'),
                   content: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -163,23 +169,39 @@ class GenreButtonsPage extends StatelessWidget {
                 );
               },
             );
-          },
-          style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.purple, 
-            foregroundColor: Colors.white, 
+        },
+        style: ElevatedButton.styleFrom(
+          padding: EdgeInsets.zero,
+          backgroundColor: Colors.transparent,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.zero,
+            side: BorderSide(color: Colors.black, width: 4), // button border
           ),
-          child: const Text(
-            'I\'m Feeling Lucky!',
-            style: TextStyle(fontSize: 25),
-          ),
+        ),
+        child: Stack( // Stack is used to display the image and text on top of each other
+          alignment: Alignment.center,
+          children: [
+            Ink.image(
+              image: AssetImage(imagePath),
+              width: size,
+              height: size,
+              fit: BoxFit.cover,
+            ),
+            const Positioned(
+              bottom: 10,
+              child: Text( // Text for button
+                'Random',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                  fontSize: 20,
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
-  }
-
-  void main() {
-    runApp(MaterialApp(
-      home: GenreButtonsPage(),
-    ));
   }
 }
