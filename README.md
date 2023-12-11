@@ -41,6 +41,15 @@ The app will be a Client-Server Application where the app will send a request wi
 </p>
 
 ## 4 Video
-[https://youtu.be/-Fo75aVzfNM](https://youtu.be/-Fo75aVzfNM)https://youtu.be/-Fo75aVzfNM
+
+### 4.1 New Video
 [https://youtu.be/RQkuuv4jIJQ](https://youtu.be/RQkuuv4jIJQ)https://youtu.be/RQkuuv4jIJQ
+
+### 4.2 App Functionality 
+[https://youtu.be/_o13jRvfNTI](https://youtu.be/_o13jRvfNTI)https://youtu.be/_o13jRvfNTI
+
+### 4.3 Old Video for reference
+[https://youtu.be/-Fo75aVzfNM](https://youtu.be/-Fo75aVzfNM)https://youtu.be/-Fo75aVzfNM
+
+
  
