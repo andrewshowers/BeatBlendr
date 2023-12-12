@@ -47,16 +47,29 @@ The app will be a Client-Server Application where the app will send a request wi
 ## 4 User Guide/Implementation
 
 ### 4.1 Home Page
+<p align="center">
+  <img src="regex/homescreen.png" width="300" title="Home Page">
+</p>
 Click on the 'Let's Go' button to move to the genre selection page.
 
 ### 4.2 Insert Data Page
+<p align="center">
+  <img src="regex/insert.png" width="300" title="Insert Data Page">
+</p>
 Insert a song by typing the Title and Artist, then select the drop down window to choose the Genre of song. Once filled out, select the 'Insert song' button to add your song to the library.
 
 ### 4.3 Display Data Page
+<p align="center">
+  <img src="regex/data.png" width="300" title="Display Data Page">
+</p>
 This page displays the hardcoded list of songs and songs that the user has added manualy.
 
 ### 4.4 Genre Selection Page
+<p align="center">
+  <img src="regex/genre.png" width="300" title="Genre Selection Page">
+</p>
 This page has a variety of genre buttons, when clicked the app will pop up with a personalized song recomendation based on your selection.
+
 
 
 ## 5 Risk Analysis and Retrospective
