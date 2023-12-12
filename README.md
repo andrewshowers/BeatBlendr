@@ -71,7 +71,7 @@ At first, the song insertion page did not refresh or allow for the user to confi
 [https://youtu.be/RQkuuv4jIJQ](https://youtu.be/kxUia57iW4E)https://youtu.be/kxUia57iW4E
 
 ### 6.2 App Functionality 
-[https://youtu.be/_o13jRvfNTI](https://youtu.be/_o13jRvfNTI)https://youtu.be/_o13jRvfNTI
+[https://youtu.be/_NNy3aKnEnc](https://youtu.be/_NNy3aKnEnc)https://youtu.be/_NNy3aKnEnc
 
 ### 6.3 Old Video for reference
 [https://youtu.be/-Fo75aVzfNM](https://youtu.be/-Fo75aVzfNM)https://youtu.be/-Fo75aVzfNM
